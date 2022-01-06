@@ -14,13 +14,18 @@ function makeImageURL(url) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	const dogBreed = document.getElementById("dog-breeds")
-	.createElement('li').appendChild('ul')
+	let dogBreed = document.getElementById("dog-breeds")
+
     fetch('https://dog.ceo/api/breeds/list/all')
 	.then(res => res.json())
-	.then(dogBreedObject => {
-		let dogArray = dogBreedObject.message
-		dogArray.forEach(dog => dogBreed.innerHTML += ap)
-
+	.then(response => {
+		let dogArray = Object.keys(response.message)
+		dogArray.forEach((breed) => {
+			dogBreed.innerHTML += `<li>${breed}</li>`
+		})
 	})
+})
+
+function handleColorChange() {
+	addEventListener('click',)
 }
